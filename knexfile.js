@@ -7,13 +7,13 @@ module.exports = {
 
   development: {
     client: 'postgresql',
-    connection: 'postgres://localhost/stream-library',
+    connection: 'postgres://localhost/stream_library',
     debug: true
   },
 
   test: {
     client: 'postgresql',
-    connection: 'postgres://localhost/stream-library',
+    connection: 'postgres://localhost/stream_library',
     debug: true
   },
 

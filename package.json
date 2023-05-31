@@ -18,5 +18,21 @@
     "nodemon": "^2.0.22",
     "pg": "^8.11.0",
     "supertest": "^6.3.3"
-  }
+  },
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quarterlylearnings/stream-library-management.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quarterlylearnings/stream-library-management/issues"
+  },
+  "homepage": "https://github.com/quarterlylearnings/stream-library-management#readme",
+  "description": ""
 }

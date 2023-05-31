@@ -3,6 +3,9 @@ const app = require("../app");
 const db = require('../db')
 
 describe("The /books endpoint", () => {
+    afterAll(async () => {
+        await db.destroy();
+    });
     describe(" for GET requests", () => {
 
         beforeEach(async () => {
@@ -28,4 +31,22 @@ describe("The /books endpoint", () => {
             expect(response.body[0]).toHaveProperty('author')
         })
     });
+
+    describe(" for POST requests", () => {
+
+        afterEach(async () => {
+            await db('books').del()
+        })
+        test("responds with the added book", async () => {
+            //Setup Execute Assert Teardown
+            const newBook = { title: "The Scout Mindset", author: "Scout TF2" }
+
+            const response = await request(app).post('/books').send(newBook);
+
+            expect(response.statusCode).toBe(201);
+            expect(response.body[0]).toHaveProperty("id");
+            expect(response.body[0].title).toBe(newBook.title);
+            expect(response.body[0].author).toBe(newBook.author);
+        })
+    })
 });
